@@ -1,0 +1,27 @@
+Page States
+- Viewing Home Page (HOME) (Initial State)
+- Viewing Category Results (CATEGORY_RESULTS)
+- Viewing Search Results Page (SEARCH_RESULTS)
+- Viewing Product Page (PRODUCT)
+- Viewing Cart Page (CART)
+- Checking Out Page (CHECKOUT)
+
+Variables + Name + Initial Values
+- Integer of cart items - cartItems - 0
+
+Transitions
+- Go To Home Page
+    - Any Page Except Check Out -> HOME
+- Go To Category Results Page
+    - Any Page Except Cart and Checkout-> CATEGORY_RESULTS
+- Go To Search Results Page
+    - Any Page Except Checkout-> SEARCH_RESULTS
+- Go To Product Page
+    - CATEGORY_RESULTS -> PRODUCT (if page has at least 1 result)
+    - SEARCH_RESULTS -> PRODUCT (if page has at least 1 result)
+- Add Product To Cart
+    PRODUCT -> CartItems + 1
+- Go To Cart Page
+    - Any Page Except Checkout-> CART (if CartItems > 0)
+- Go To Checkout Page
+    - CART -> CHECKOUT
