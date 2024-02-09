@@ -48,9 +48,6 @@ public class AssignmentSteps {
     public void iClickOnTheCategory(String categoryName) {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10)); //class to wait a maximum of 10 seconds, otherwise the test will fail
         String spanOfLinkButtonXPath = "//span[@class='cat-name' and contains(text(), '" + categoryName + "')]";
-        //The intercomp website does not give any distinguishable information to the clickable <a> tags such as text or an id,
-        // making the category buttons hard to locate autonomously. However, the tags do have child elements distinguishable by the cat-name and cat-img classes which are only used on them. cat-img is used on the image and cat-name is used on the title of the category within the button
-        // Since the cat-name class is only used on the children of the category buttons, they can be discovered by searching for the element which uses cat-name as a class, and checking for the text which includes the category's name.
         WebElement spanOfLinkButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(spanOfLinkButtonXPath))); //finds the corresponding <span> element through the cat-name class
         WebElement parentAnchor = spanOfLinkButton.findElement(By.xpath("./parent::a")); //finds the clickable <a> class parent of the span cat-name
         parentAnchor.click();

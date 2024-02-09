@@ -113,12 +113,12 @@ public class UserModelTest implements FsmModel {
     @Test
     public void UserModelTestRunner() {
         UserModelTest model = new UserModelTest();
-        //GreedyTester tester = new GreedyTester(model);
+        GreedyTester tester = new GreedyTester(model);
         //LookaheadTester tester = new LookaheadTester(model);
         //RandomTester tester = new RandomTester(model);
-        AllRoundTester tester = new AllRoundTester(model);
+        //AllRoundTester tester = new AllRoundTester(model);
         tester.setRandom(new Random());
-        //tester.buildGraph();
+        tester.buildGraph();
         tester.addListener(new VerboseListener());
         tester.addListener(new StopOnFailureListener());
         tester.addCoverageMetric(new TransitionCoverage());
